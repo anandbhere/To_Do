@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from django.views import View
-
+from . models import *
 # Create your views here.
 
 class CreateTask(View):
@@ -15,14 +15,10 @@ class CreateTask(View):
         cat = request.POST['cat']
         date = request.POST['due_date']
 
-        print('Title', t)
-        print('Details',det)
-        print("Category", cat)
-        print('date',date)
-
 
         # data validation
-        return HttpResponse("Date fetched")
+        task = Todo.objects.create(title=t,detail=det,cat=cat,due_date=date)
+        return HttpResponse("Data fetched")
 
     
 
