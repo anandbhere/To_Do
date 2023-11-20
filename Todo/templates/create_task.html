@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <h1>To Do List</h1>
+            <table border="2">
+                <tr>
+                    <th>
+Task Title
+                    </th>
+                    <td>
+<input type="text" name="title">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Task Details</th>
+                    <td> <textarea name="det" id="" cols="30" rows="10"></textarea></td>
+                </tr>
+
+                <tr>
+                    <th>Category</th>
+                    <td>
+                        <select name="cat" id="">
+                            <option value="1">Office</option>
+                            <option value="2">Home</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Due Date:</th>
+                    <td><input type="date" name="due_date"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="submit" value="Create Task"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+</body>
+</html>
