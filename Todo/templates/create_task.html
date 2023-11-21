@@ -10,7 +10,7 @@
         <form method="POST">
             {% csrf_token %}
             <h1>To Do List</h1>
-            <table border="2">
+            <table border="2" align="center">
                 <tr>
                     <th>
 Task Title
@@ -42,6 +42,12 @@ Task Title
                 <tr>
                     <td><input type="submit" value="Create Task"></td>
                 </tr>
+
+            <tr><td><a href="ViewTask">View Tasks</a></td>
+                <td><a href="">update</a></td>
+            </tr>
+            <td><a href="Login"></a>Login</td>
+            <tr></tr>
             </table>
         </form>
     </div>

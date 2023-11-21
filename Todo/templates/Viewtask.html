@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table border="2" align="center">
+       <tr>
+                <th>Sr No</th>
+                <th>Title</th>
+                <th>Details</th>
+                <th>Category</th>
+                <th>Due Date</th>
+                <th>Created On </th>
+                <th>Edit</th>
+                <th>Delete</th>
+        </tr>
+
+        {% for x in tasks %}
+        <tr>
+               <th>{{x.id}}</th>
+                <th>{{x.title}}</th>
+                <th>{{x.detail}}</th>
+                <th>{{x.cat}}</th>
+                <th>{{x.due_date}}</th>
+                <th>{{x.created_on}}</th>
+                <th><a href="Edit/{{x.id}}">Edit</a></th>
+                <th><a href="Delete/{{x.id}}">Delete</a></th>
+
+
+        </tr>
+        {% endfor %}
+       
+    </table>
+    
+</body>
+</html>
