@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(41, 216, 216);
+}
+
+.loginForm{
+    background-color: rgb(35, 126, 133);
+    border: 2px;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 20px;
+    
+    
+}

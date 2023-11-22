@@ -66,10 +66,13 @@ class Register(View):
         uname = request.POST['uname']
         upass = request.POST['upass']
         ucpass = request.POST['ucpass']
+        print(upass)
+        print(ucpass)
         u = User.objects.create(username = uname)
-        u.set_password = upass
-
-        return HttpResponse("User created successfully")
+        u.set_password(upass)
+        u.save()
+        return redirect('/')
+       
     
 class UserLogin(View):
     def get(self,request):
@@ -78,18 +81,23 @@ class UserLogin(View):
     def post(self,request):
         uname = request.POST['uname']
         upass = request.POST['upass']
+        context = {}
+
 
         u = authenticate(username = uname, password = upass)
         if u is not None:
             login(request,u)
-            return redirect('/dashboard')
+            return redirect('/Dashboard')
+        else:
+            context['errmsg'] = "Invalid Username or Password"
+            return render(request,"Login.html",context)
         #return HttpResponse('Loggedin successfullly')
 
 
 class UserLogout(View):
     def get(self,request):
         logout(request)
-        return redirect('/login')
+        return redirect('/')
 
 
 class Dashboard(View):
@@ -97,6 +105,7 @@ class Dashboard(View):
         if request.user.is_authenticated:
             t = Todo.objects.filter(uid=request.user)
             print(t)
+            
 
             return render(request,'Dashboard.html',{'task' :t})
         else:
