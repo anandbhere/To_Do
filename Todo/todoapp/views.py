@@ -8,7 +8,12 @@ from django.contrib.auth import authenticate,login,logout
 class CreateTask(View):
 
     def get(self,request):
-        return render(request,'create_task.html')
+        
+        if request.user.is_authenticated:
+            return render(request,'create_task.html')
+        else:
+            context = {"msg":"You must login first to create tasks"}
+            return redirect('/',context)
     
     def post(self,request):
         #data fetch from form 
@@ -16,10 +21,10 @@ class CreateTask(View):
         det = request.POST['det']
         cat = request.POST['cat']
         date = request.POST['due_date']
-
+        u = request.user
 
         # data validation
-        task = Todo.objects.create(title=t,detail=det,cat=cat,due_date=date,uid = request.user)
+        task = Todo.objects.create(title=t,detail=det,cat=cat,due_date=date,uid = u)
         return HttpResponse("Data fetched")
 
     

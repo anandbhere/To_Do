@@ -51,6 +51,13 @@
             {{errmsg}}
         </div>
         {% endif %}
+
+        {% if msg %}
+        <div class="alert alert-danger">
+            {{msg}}
+        </div>
+        {% endif %}
+
         {% csrf_token %}
         <div class="loginForm col-md-6 mx-auto p-5">
             <p class="uname">Username: <span><input class="form-control" type="text" name="uname"></span></p>

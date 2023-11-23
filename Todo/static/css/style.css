@@ -11,3 +11,11 @@ body{
     
     
 }
+
+.heading{
+    position:relative;
+    height: 20px;
+    background-color: rgb(231, 112, 32);
+    text-align: center;
+    
+}
