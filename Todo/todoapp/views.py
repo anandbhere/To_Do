@@ -25,7 +25,8 @@ class CreateTask(View):
 
         # data validation
         task = Todo.objects.create(title=t,detail=det,cat=cat,due_date=date,uid = u)
-        return HttpResponse("Data fetched")
+        return render(request,'create_task.html',{'alert':'Task Creted Successfully'})
+       # return HttpResponse("Data fetched")
 
     
 
@@ -58,10 +59,12 @@ class UpdateTask(View):
 
 class DeleteTask(View):
     def get(self,request,pk):
+        print('Pk=',pk)
         DeleteTask = Todo.objects.get(id=pk)
         print(DeleteTask)
         DeleteTask.delete()
-        return render(request,'ViewTask.html')
+
+        return redirect('/ViewTask',{'delete_alert':'Task Deleted Successfullly'})
     
 class Register(View):
     def get(self,request):

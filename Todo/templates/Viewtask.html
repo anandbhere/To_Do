@@ -19,6 +19,11 @@
     </div>
     </div>
 <div class="col-md-8 mx-auto mt-5">
+    {% if delete_alert  %}
+    <div class="alert alert-success">
+        {{delete_alert}}
+    </div>
+    {% endif %}
     <table class="table table-secondary table-bordered text-center">
         <tr>
             <th colspan="8">

@@ -41,8 +41,11 @@
     </nav>
   </div>
 
-
-
+{% if alert %}
+<div class="alert alert-success">
+  {{alert}}
+</div>
+{% endif %}
   <div>
     <form method="POST">
       {% csrf_token %}
